@@ -1,0 +1,21 @@
+{
+    "accept": "*/*",
+    "accept-encoding": "gzip, deflate",
+    "accept-language": "en-US,en;q=0.9",
+    "authorization": "SAPISIDHASH 1634199960_16a5e785a3c2804a5e232a2acaa79a99e9aea9ba",
+    "content-encoding": "gzip",
+    "content-type": "application/json",
+    "cookie": "VISITOR_INFO1_LIVE=M_Eabce4aLs; YSC=mpNxftZZ3bQ; PREF=f4=4000000&tz=Africa.Lagos&volume=100&f6=40000000&library_tab_browse_id=FEmusic_liked_playlists; HSID=AMJgWz-NjeT7C_q2Y; SSID=AOewHNEiY03q8IPNo; APISID=89Jfxxf5h7_jgR2U/A6xxTNUvlwyXdu3rk; SAPISID=Xb-l1H1nI13TzHIG/AVIGUdaQYc9Np_Z2Z; __Secure-1PAPISID=Xb-l1H1nI13TzHIG/AVIGUdaQYc9Np_Z2Z; __Secure-3PAPISID=Xb-l1H1nI13TzHIG/AVIGUdaQYc9Np_Z2Z; LOGIN_INFO=AFmmF2swRQIhAOmfnlrAt_Kq2R48o0qQV-TKWfobJHmmP6Ahn1vzVh1rAiAKx8NtW7yce911Pe6T6ezs0piSOis3Jyw3lEc91Q49-w:QUQ3MjNmd0NoTWYyenNhR2hyWEJWZzJJRllpeXpzdkxfLV9fRF9xT1c1cWxSSXJ1cTVqU0UwajVDRUI1ak5KZ2RwcllnQ3Y1SnF4RkduMUI1ekxCazY1WWhyQlVIdk4yVmgyaEU5ZVk3U3E4YThyRl90TGZraDBDazRnaXFwaXd1ZDh1bkJ6Wm9fUWx4d2RwVGo0ckYxdEV5bmZ6ZmFHRHd3; SID=Cwj0ALVUz5y2hXkTRoWzlLkXLPhfqw-sky2LUUKOcdbfb_mK1a6v1lSe_dHPUQckaKWrlw.; __Secure-1PSID=Cwj0ALVUz5y2hXkTRoWzlLkXLPhfqw-sky2LUUKOcdbfb_mKS2rwKA6-uTHNO67j1cm5OA.; __Secure-3PSID=Cwj0ALVUz5y2hXkTRoWzlLkXLPhfqw-sky2LUUKOcdbfb_mKVMcIA6QGx0xVzrlpInjItw.; SIDCC=AJi4QfHM4TyqWfwvS9MXTxB4BBVVD0Jz3xHFTFCfiw3AgXxscqBDVMaoFSlLzeZkXe_ooUNRj2Y; __Secure-3PSIDCC=AJi4QfE-VjV_cP7cck9XLhRyjTv31SzliiGaDGb2wzi9IeRou_T1AiBd50hj7jnatISAB0hk9A",
+    "origin": "https://music.youtube.com",
+    "referer": "https://music.youtube.com/",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "same-origin",
+    "sec-fetch-site": "same-origin",
+    "sec-gpc": "1",
+    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:88.0) Gecko/20100101 Firefox/88.0",
+    "x-goog-authuser": "3",
+    "x-goog-visitor-id": "CgtNX0VhYmNlNGFMcyiP05-LBg%3D%3D",
+    "x-origin": "https://music.youtube.com",
+    "x-youtube-client-name": "67",
+    "x-youtube-client-version": "1.20211011.00.00"
+}

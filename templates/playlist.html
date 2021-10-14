@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load converter_extras %}
+{% block content %}
+<div class="row justify-content-center mt-1 mb-5">
+    <div class="col-lg-10">
+        <h2>Playlist {{ playlist.uuid }}</h2>
+        <hr>
+        {% if playlist.platform == "SPOTIFY" %}
+        <div class="card mb-3">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="{{ playlist.metadata.images.0.url }}" class="img-fluid rounded-start" alt="playlist cover">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body w-full">
+                        <h1 class="card-title">{{ playlist.metadata.name }}</h1>
+                        <hr>
+                        <h4 class="card-title">{{ playlist.metadata.tracks.items|length }} songs.</h4>
+                        <p class="card-text"><small class="text-muted">Created by {{ playlist.metadata.owner.display_name }}</small></p>
+                        <a href="{{ playlist.metadata.external_urls.spotify }}" type="button" class="btn btn-success w-100 mt-4" target="_blank">Open in Spotify</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table class="table table-striped my-5">
+            <thead>
+                <tr>
+                    <th>S/N</th>
+                    <th>Artist Name</th>
+                    <th>Song Name</th>
+                    <th>Duration</th>
+                    <th>Preview</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for track in playlist.metadata.tracks.items %}
+                    <tr>
+                        <td>{{ forloop.counter }}.</td>
+                        <td>{{ track.track.artists|join_artists }}</td>
+                        <td>{{ track.track.name }}</td>
+                        <td>{{ track.track.duration_ms }}</td>
+                        <td><a href="{{ track.track.preview_url }}" type="button" class="btn btn-primary" target="_blank">Preview</button></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% elif playlist.platform == "YOUTUBE" %}
+        <div class="card mb-3">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="{{ playlist.metadata.thumbnails.2.url }}" class="img-fluid rounded-start" alt="playlist cover">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body w-full">
+                        <h1 class="card-title">{{ playlist.metadata.title }}</h1>
+                        <h4 class="card-subtitle">{{ playlist.metadata.description }}</h4>
+                        <hr>
+                        <h4 class="card-title">{{ playlist.metadata.trackCount }} songs.</h4>
+                        <p class="card-text"><small class="text-muted">Created by {{ playlist.metadata.author.name }}</small></p>
+                        <a href="https://music.youtube.com/playlist?list={{ playlist.metadata.id }}" type="button" class="btn btn-danger w-100 mt-4" target="_blank">Open in YTMusic</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table class="table table-striped my-5">
+            <thead>
+                <tr>
+                    <th>S/N</th>
+                    <th>Artist Name</th>
+                    <th>Song Name</th>
+                    <th>Duration</th>
+                    <th>Preview</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for track in playlist.metadata.tracks %}
+                    <tr>
+                        <td>{{ forloop.counter }}.</td>
+                        <td>{{ track.artists|join_artists }}</td>
+                        <td>{{ track.title }}</td>
+                        <td>{{ track.duration }}</td>
+                        <td><a href="https://music.youtube.com/watch?v={{ track.videoId }}" type="button" class="btn btn-primary" target="_blank">Listen</button></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="row justify-content-center mt-1 mb-5">
+    <div class="col-lg-10">
+        <h2>Convert Playlist</h2>
+        <hr>
+        <div class="card">
+            <div class="card-header text-center lead fw-bold">
+                Convert Playlist Form
+            </div>
+            <div class="card-body">
+                <div class="alert alert-info" role="alert">
+                    Note: Make sure you have a Spotify account to convert to a Spotify playlist.
+                </div>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button class="btn btn-success d-block w-100 fw-bold">Convert Playlist</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
