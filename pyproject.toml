@@ -13,7 +13,7 @@ ytmusicapi = "^0.19.3"
 spotipy = "^2.19.0"
 django-environ = "^0.7.0"
 gunicorn = "^20.1.0"
-psycopg2-binary = "^2.9.1"
+psycopg2 = "^2.9.1"
 
 [tool.poetry.dev-dependencies]
 
