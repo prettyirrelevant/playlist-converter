@@ -1,17 +1,45 @@
+import json
+
 from django.conf import settings
+from redis import StrictRedis
 from spotipy import Spotify as _Spotify
 from spotipy import SpotifyClientCredentials
+from spotipy.cache_handler import CacheHandler
 from spotipy.exceptions import SpotifyException
 from spotipy.oauth2 import SpotifyOAuth
 from ytmusicapi import YTMusic as _YTMusic
 
 # TODO: Add logging
 
+redis = StrictRedis.from_url(settings.REDIS_URL)
+
+
+class RedisCacheHandler(CacheHandler):
+    def __init__(self):
+        self.r = redis
+
+    def get_cached_token(self):
+        token_info = None
+        try:
+            token_info = json.loads(self.r.get("token"))
+        except:
+            pass
+
+        return token_info
+
+    def save_token_to_cache(self, token_info):
+        try:
+            self.r.set("token", json.dumps(token_info))
+        except:
+            pass
+
 
 class Spotify:
     def __init__(self) -> None:
         sp_client_manager = SpotifyClientCredentials()
-        self.sp_oauth_manager = SpotifyOAuth(scope="playlist-modify-public")
+        self.sp_oauth_manager = SpotifyOAuth(
+            scope="playlist-modify-public", cache_handler=RedisCacheHandler()
+        )
         self.sp = _Spotify(
             client_credentials_manager=sp_client_manager, oauth_manager=self.sp_oauth_manager
         )

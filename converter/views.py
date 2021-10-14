@@ -5,7 +5,7 @@ from django.views import generic
 
 from .forms import PlaylistConverterForm, StreamingPlatform
 from .models import Playlist
-from .services import spotify, ytmusic
+from .services import redis, spotify, ytmusic
 
 
 class IndexView(generic.ListView):
@@ -84,6 +84,7 @@ class SpotifyCallbackView(generic.View):
                 playlist = Playlist.objects.create(
                     metadata=playlist, platform=StreamingPlatform.SPOTIFY
                 )
+                redis.delete("token")
                 messages.success(self.request, "Playlist created successfully!")
                 return redirect(reverse("view-playlist", kwargs={"uuid": playlist.uuid.hex}))
             except Exception as err:
