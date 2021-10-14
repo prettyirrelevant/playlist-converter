@@ -10,7 +10,7 @@ from .services import spotify, ytmusic
 
 class IndexView(generic.ListView):
     template_name = "index.html"
-    queryset = Playlist.objects.order_by("date_created")
+    queryset = Playlist.objects.order_by("-date_created")
     context_object_name = "playlists"
     paginate_by = 4
 
