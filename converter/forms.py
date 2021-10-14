@@ -14,7 +14,7 @@ class PlaylistConverterForm(forms.Form):
     )
     playlist_link = forms.URLField(
         label=_("Playlist Link"),
-        max_length=100,
+        max_length=200,
         help_text=_("The link of the playlist to convert."),
     )
     source = forms.ChoiceField(
