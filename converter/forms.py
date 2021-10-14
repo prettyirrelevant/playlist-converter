@@ -38,7 +38,7 @@ class PlaylistConverterForm(forms.Form):
         playlist_link = cleaned_data.pop("playlist_link")
         playlist_netloc = urlparse(playlist_link).netloc
         
-        if playlist_netloc not in accepted_domain:
+        if playlist_netloc not in accepted_domains:
             self.add_error(
                 "playlist_link", f"We currently do not support {playlist_netloc}."
             )
